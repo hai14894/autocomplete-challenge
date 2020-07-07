@@ -1,9 +1,15 @@
-import React from 'react'
+import React, {useState} from 'react'
 
 const Autocomplete = ({possibleSearchResults}) => {
+    const [searchValue, setSearchValue] = useState("")
     return (
         <div>
-            Autocomplete Here
+            <input 
+            value= {searchValue}
+            onChange={(e)=> setSearchValue(e.target.value)
+                
+            }/>
+            {searchValue && possibleSearchResults.filter(x =>x.includes(searchValue)).map(p => <li>{p}</li>)}
         </div>
     )
 }
